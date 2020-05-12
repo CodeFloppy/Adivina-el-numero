@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Adivina el numero</title>
+</head>
+<body>
+    <div class="container">
+
+        <!-- pantalla de menu principal -->
+
+        <div class="view-menu" id="view-menu">
+            <div class="box">
+
+                <img src="./img/logo.png" class="logo-juego" alt="">
+
+                <div class="bt bt-jugar" id="bt-jugar">Jugar</div>
+                <div class="bt bt-instrucciones" id="bt-instrucciones">¿Como jugar?</div>
+
+                <div class="box-dificultad">
+
+                    <span>Dificultad</span>
+
+                    <div class="opcion-dificultad">
+                        <div>
+                            <input type="checkbox" id="check1" checked>
+                            <label for="check1" class="opc-facil">Facil<span></span></label>
+                        </div>
+
+                        <div>
+                            <input type="checkbox" id="check2">
+                            <label for="check2" class="opc-normal">Normal<span></span></label>
+                        </div>
+
+                        <div>
+                            <input type="checkbox" id="check3">
+                            <label for="check3" class="opc-dificil">Dificil<span></span></label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- pantalla de instrucciones -->
+
+        <div class="view-instrucciones" id="view-instrucciones">
+            <div class="box-instrucciones">
+                <div class="aling">
+
+                    <span>Jugar esto es muy fácil.</span>
+
+                    <p>
+                        Tienes que adivinar en un rango de <span>a</span> y <span>b</span> en que numero esta pensando el juego.
+                    </p>
+                    <p>
+                        Te indicara que tan cerca estarás del numero ganador con:
+                    </p>
+                    <li class="frio"><img src="./img/emoji_frio.png" alt="">Frio: Lejos.</li>
+                    <li class="caliente"><img src="./img/emoji_caliente.png" alt="">Caliente: Cerca.</li>
+
+                    <div class="bt bt-entendido" id="bt-entendido">Entendido</div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- pantalla de juego -->
+
+        <div class="view-juego" id="view-juego">
+            <div class="aling">
+
+                <img src="./img/exit.png" class="salir" id="salir">
+
+                <span class="rango" id="rango">Del 1 al 20</span>
+                <p>¿en que numero estoy pensando?</p>
+
+                <div class="box-respuesta">
+                    <input type="text" class="campo-respuesta" id="campoRespuesta" placeholder="0" onkeypress='return validaNumericos(event)'>
+                    <div class="box-emoji" id="emojiGuia"></div>
+                </div>
+
+                <div class="bt bt-responder" id="btResponder">Responder</div>
+
+                <p id="infJugadas">Tienes <span class="opor-restantes" id="oporRestantes">6</span> de <span class="opor-totales" id="oporTotales">6</span> oportunidades.</p>
+
+            </div>
+        </div>
+
+        <!-- view de salida -->
+
+        <div class="view-exit" id="view-exit">
+            <div class="box-exit">
+                <div class="aling">
+
+                <span>¿Quieres salir del juego?</span>
+
+                <div class="box-bt">
+                    <div class="bt bt-no" id="btContinuar">No</div>
+                    <div class="bt bt-si" id="btSalir">Si</div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- view perdiste -->
+
+        <div class="view-perdiste" id="view-perdiste">
+            <div class="box-perdiste">
+                <div class="aling">
+                    
+                    <span>Perdiste!!</span>
+
+                    <p>El numero era</p>
+                    <span class="num-ganador" id="pNumGanador">4</span>
+
+                    <div class="box-bt">
+                        <div class="bt bt-intentar" id="bt-pierde-intentar">Volver a intentar</div>
+                        <div class="bt bt-menu" id="btMenu">Menu principal</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- view ganaste -->
+
+        <div class="view-ganaste" id="view-ganaste">
+            <div class="box-ganaste">
+                <div class="aling">
+
+                    <span>Ganaste!!</span>
+
+                    <p>El numero era</p>
+                    <span class="num-ganador" id="gNumGanador">4</span>
+
+                    <div class="puntaje-estrellas" id="punt-estrellas"></div>
+
+                    <div class="bt bt-premio" id="btPremio">Escoger premio</div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- view juego de cartas -->
+
+        <div class="view-juego-cartas" id="view-juego-de-cartas">
+            <div class="box-juego-cartas">
+                <div class="aling">
+
+                    <span>Escoge una carta</span>
+
+                    <div class="box-cartas">
+                        <div class="box-carta" id="carta01">
+                            <img src="./img/carta.png" class="carta">
+                        </div>
+                        <div class="box-carta" id="carta02">
+                            <img src="./img/carta.png" class="carta">
+                        </div>
+                        <div class="box-carta" id="carta03">
+                            <img src="./img/carta.png" class="carta">
+                        </div>
+                        <div class="box-carta" id="carta04">
+                            <img src="./img/carta.png" class="carta">
+                        </div>
+                        <div class="box-carta" id="carta05">
+                            <img src="./img/carta.png" class="carta">
+                        </div>
+                        <div class="box-carta" id="carta06">
+                            <img src="./img/carta.png" class="carta">
+                        </div>
+                        <div class="box-carta" id="carta07">
+                            <img src="./img/carta.png" class="carta">
+                        </div>
+                        <div class="box-carta" id="carta08">
+                            <img src="./img/carta.png" class="carta">
+                        </div>
+                        <div class="box-carta" id="carta09">
+                            <img src="./img/carta.png" class="carta">
+                        </div>
+                        <div class="box-carta" id="carta10">
+                            <img src="./img/carta.png" class="carta">
+                        </div>
+                    </div>
+
+                    <p>Todos los premios son simbólicos.</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="view-premio" id="view-premio">
+            <div class="box-premio">
+                <div class="aling">
+
+                    <span>Tu premio es</span>
+                    <p id="nom-premio"></p>
+
+                    <div class="img-premio" id="img-premio">
+                    </div>
+
+                    <div class="box-bt">
+                        <div class="bt bt-intentar" id="bt-gana-intentar">Volver a intentar</div>
+                        <div class="bt bt-menu" id="bt-gana-Menu">Menu principal</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./js/al_iniciar.js"></script>
+    <script src="./js/audios.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/view_juego.js"></script>
+    <script src="./js/validar_campo.js"></script>
+    <script src="./js/view_juego_de_cartas.js"></script>
+    
+</body>
+</html>
