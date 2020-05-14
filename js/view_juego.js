@@ -70,7 +70,7 @@ btResponder.addEventListener('click',()=>{
 
         document.getElementById('pNumGanador').innerHTML = numGanador;
         viewPerdiste.style.display ="block";
-        console.log(oportunidades);
+        // console.log(oportunidades);
     }
 
 });
