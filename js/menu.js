@@ -3,6 +3,8 @@ let dFacil   = document.getElementById('check1');
 let dNormal  = document.getElementById('check2');
 let dDificil = document.getElementById('check3');
 
+let valMaxRango = 0;
+
 // accion de botones::
 document.getElementById('bt-instrucciones').addEventListener('click' , ()=>{
 
@@ -74,21 +76,20 @@ function dificultad(){
 
     if(dFacil.checked == true){
 
-        numGanador = valRandom(1 , 15);
-        // console.log("facil");
-        document.getElementById('rango').innerHTML = "Del 1 al 15";
+        valMaxRango = 15;
 
     }else if(dNormal.checked == true){
 
-        numGanador = valRandom(1 , 25);
-        // console.log("normal");
-        document.getElementById('rango').innerHTML = "Del 1 al 25";
+        valMaxRango = 25;
+       
     }else{
 
-        numGanador = valRandom(1 , 35);
-        // console.log("dificil");
-        document.getElementById('rango').innerHTML = "Del 1 al 35";
+        valMaxRango = 35;
+        
     }
+
+    numGanador = valRandom(1 , valMaxRango);
+    document.getElementById('rango').innerHTML = `Del 1 al ${valMaxRango}`;
 
     infjugadas();
 

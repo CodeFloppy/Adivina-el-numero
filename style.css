@@ -35,6 +35,9 @@ body{
     text-align: center;
     cursor: pointer;
 }
+.container .bt:hover{
+    background: linear-gradient(#D3DB00 , rgb(255, 81, 0));
+}
 
 /* color amarillo principal*/
 .view-menu .box .box-dificultad > span,
@@ -330,6 +333,12 @@ body{
     left: 0;
     cursor: pointer;
     border-radius: 50%;
+
+    width: 48px;
+    height: 48px;
+    font-size: 2.5em;
+    line-height: 33px;
+    font-weight: 500;
 }
 
 /* pantalla para salir de la partida */
@@ -363,6 +372,9 @@ body{
 }
 .view-exit .box-bt .bt-si{
    background: linear-gradient(#6AE4F2 , #0F2243);
+}
+.view-exit .box-bt .bt-si:hover{
+   background: linear-gradient(#6AE4F2 , rgb(13, 110, 121));
 }
 
 /* pantalla de  perdiste */
