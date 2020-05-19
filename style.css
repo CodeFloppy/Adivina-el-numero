@@ -18,14 +18,17 @@ body{
 /* .----------------------------------. */
 
 .container{
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
     width: 100%;
     max-width: 700px;
-    min-width: 520px;
-    height: 450px;
-    margin: auto;
-    background: url("./img/background.png") no-repeat;
-    background-position:center -37px;
+    height: 100vh;
+    max-height: 900px;
+    background: url("./img/background.jpg") no-repeat;
+    background-position:center;
+    /* background: #2fa217; */
     overflow: hidden;
 }
 
@@ -116,23 +119,14 @@ body{
     }
 }
 
-
-.view-menu .box{
-    width: 60%;
-    height: inherit;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.view-menu .box .bt{
+.view-menu .bt{
     width: 170px;
     height: 44px;
     border-radius: 29px;
     font-size: 1.25em;
     margin-bottom: 17px;
 }
-.view-menu .box .box-dificultad{
+.view-menu .box-dificultad{
     width: 268px;
     height: 105px;
     text-align: center;
@@ -140,20 +134,20 @@ body{
     border-radius: 10px;
     background: radial-gradient(#2EAD14 , #116500);
 }
-.view-menu .box .box-dificultad > span{
+.view-menu .box-dificultad > span{
     font-size:1.2em;
     font-weight: bold;
     margin: 5px 0px;
     display: block;
 }
-.view-menu .box .box-dificultad .opcion-dificultad{
+.view-menu .box-dificultad .opcion-dificultad{
     display: flex;
     justify-content: center;
 }
-.view-menu .box .box-dificultad .opcion-dificultad input[type="checkbox"]{
+.view-menu .box-dificultad .opcion-dificultad input[type="checkbox"]{
     display: none;
 }
-.view-menu .box .box-dificultad .opcion-dificultad label{
+.view-menu .box-dificultad .opcion-dificultad label{
     display: block;
     width: 49px;
     font-size: 1em;
@@ -161,10 +155,10 @@ body{
     cursor: pointer;
     text-transform: lowercase;
 }
-.view-menu .box .box-dificultad .opcion-dificultad .opc-normal{
+.view-menu .box-dificultad .opcion-dificultad .opc-normal{
     margin: 0px 15px;
 }
-.view-menu .box .box-dificultad .opcion-dificultad span{
+.view-menu .box-dificultad .opcion-dificultad span{
     display: inline-block;
     width: 17px;
     height: 17px;
@@ -172,7 +166,7 @@ body{
     border-radius: 50%;
     background: #820000;
 }
-.view-menu .box .box-dificultad .opcion-dificultad input[type="checkbox"]:checked ~ label span{
+.view-menu .box-dificultad .opcion-dificultad input[type="checkbox"]:checked ~ label span{
     background: #FF0000;  
 }
 
@@ -205,9 +199,10 @@ body{
 .view-ganaste .box-ganaste,
 .view-juego-cartas .box-juego-cartas,
 .view-premio .box-premio{
-    width:100%;
+    width: 90%;
     max-width: 584px;
-    height: 359px;
+    height: auto;
+    min-height: 359px;
 }
 
 /* alinear contenido */
@@ -218,7 +213,9 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: inherit;
+    justify-content: center;
+    height: 100%;
+    border: 1px solid transparent;
 }
 .view-instrucciones .aling,
 .view-instrucciones .box-instrucciones .aling > span{
@@ -231,7 +228,8 @@ body{
 }
 .view-instrucciones .box-instrucciones p{
     margin-bottom: 10px;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
 }
 .view-instrucciones .box-instrucciones p,
 .view-instrucciones .box-instrucciones p span,
@@ -245,17 +243,23 @@ body{
 .view-instrucciones .box-instrucciones .frio{
     margin-top: 20px;
 }
+.view-instrucciones .box-instrucciones .caliente{
+    margin-bottom: 80px;
+}
 .view-instrucciones .box-instrucciones li img{
     margin-right: 5px;
     width: 35px;
 }
 
 .view-instrucciones .box-instrucciones .bt-entendido{
-   width: 133px;
-   padding: 5px 0px;
-   border-radius: 18px;
-   float: right;
-   margin-top: 32px;
+    position: absolute;
+    bottom: 8px;
+    right: 0px;
+    width: 133px;
+    padding: 5px 0px;
+    border-radius: 18px;
+    float: right;
+    margin-top: 32px;
 }
 
 /* pantalla juego */
@@ -336,7 +340,7 @@ body{
 
     width: 48px;
     height: 48px;
-    font-size: 2.5em;
+    font-size: 40px;
     line-height: 33px;
     font-weight: 500;
 }
@@ -345,14 +349,15 @@ body{
 /* .----------------------------------. */
 
 .view-exit .box-exit{
-    width: 332px;
+    width: 90%;
+    max-width: 332px;
     height: 120px;
 }
 .view-exit .box-exit span{
     font-size: 1.25em;
     text-align: center;
     font-weight: bold;
-    margin: 20px 0px;
+    margin-bottom: 15px;
     display: block;
 }
 .view-exit .box-bt,
@@ -386,12 +391,9 @@ body{
     font-weight: bold;
     font-size: 3.5em;
 }
-.view-perdiste .box-perdiste span{
-    margin: 20px 0px 25px;
-}
 .view-perdiste .box-perdiste p + span,
 .view-ganaste .box-ganaste .num-ganador{
-    margin: 10px 0px 30px;
+    margin: 10px 0px;
     width: 76px;
     height: 76px;
     border-radius: 50%;
@@ -403,6 +405,9 @@ body{
 .view-perdiste .box-perdiste p,
 .view-ganaste .box-ganaste p{
     font-size: 1.3em;
+}
+.view-perdiste .box-bt{
+    margin-top: 20px;
 }
 .view-perdiste .box-bt .bt,
 .view-ganaste .bt-premio,
@@ -417,19 +422,22 @@ body{
 /* pantalla de  ganaste */
 /* .----------------------------------. */
 
-.view-ganaste .box-ganaste .aling span:first-child{
-    margin-top: 15px;
-}
 .view-ganaste .box-ganaste .num-ganador{
     background: linear-gradient(#D3DB00 , #FF0000);
-    margin: 10px 0px;
+   
 }
 .view-ganaste .box-ganaste .puntaje-estrellas{
     margin-bottom: 10px;
 }
-.view-ganaste .box-ganaste .puntaje-estrellas img{
-    width: 55px;
+
+.view-perdiste .aling,
+.view-ganaste .aling{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
 }
+
 
 /* pantalla juego de cartas */
 /* .----------------------------------. */
@@ -456,13 +464,16 @@ body{
 .view-juego-cartas .box-juego-cartas .box-carta img:hover{
     transform: scale(1.1);
 }
+.view-juego-cartas .box-juego-cartas p{
+    margin-bottom: 5px;
+}
 
 /* pantalla premio */
 /* .----------------------------------. */
 .view-premio .box-premio span{
     font-weight: bold;
     font-size: 1.8em;
-    margin: 10px 0px;
+    margin-top: 5px;
 }
 .view-premio .box-premio p{
     font-weight: bold;
@@ -474,7 +485,7 @@ body{
     border: 3px solid #DF9B00;
     background: white;
     border-radius: 10px;
-    margin: 15px 0px;
+    margin: 10px 0px;
     overflow: hidden;
 }
 .view-premio .box-premio .img-premio img{
@@ -482,4 +493,52 @@ body{
     height: 100%;
     display: block;
 }
+.view-premio .box-bt{
+    margin: 10px 0px 18px;
+}
 
+
+/* mode responsive */
+/* .------------------------------------. */
+
+@media screen and (max-width: 580px) {
+    .view-perdiste .box-bt,
+    .view-premio .box-bt{
+        
+        flex-direction: column;
+        align-items: center;
+    }
+    .view-perdiste .box-bt div + div,
+    .view-premio .box-bt div + div{
+
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    body, span, li, input[type="text"]{
+        font-size: 12px;
+    }
+    .view-juego-cartas .box-juego-cartas .box-carta{
+        margin: 2px;
+        transform: scale(0.8);
+    }
+    .view-menu{
+        font-size: 16px;
+    }
+    .view-menu .bt{
+        font-size: 16px;
+        line-height: 35px;
+    }
+    .view-instrucciones .box-instrucciones .caliente{
+        margin-bottom: 150px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    .view-menu .logo-juego{
+        width: 320px;
+    }
+}
